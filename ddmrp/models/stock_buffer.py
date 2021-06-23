@@ -876,6 +876,9 @@ class StockBuffer(models.Model):
         store=True,
         index=True,
     )
+    product_vendor_code = fields.Char(
+        compute="_compute_product_vendor_code", string="Vendor Code"
+    )
     green_override = fields.Float(
         string="Green Zone (Override)",
     )
@@ -884,9 +887,6 @@ class StockBuffer(models.Model):
     )
     red_override = fields.Float(
         string="Red Zone (Override)",
-    )
-    product_vendor_code = fields.Char(
-        compute="_compute_product_vendor_code", string="Vendor Code"
     )
     dlt = fields.Float(
         string="DLT (days)",
