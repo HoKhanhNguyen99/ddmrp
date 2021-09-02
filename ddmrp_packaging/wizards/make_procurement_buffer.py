@@ -8,10 +8,7 @@ from odoo import api, fields, models
 class MakeProcurementBufferItem(models.TransientModel):
     _inherit = "make.procurement.buffer.item"
 
-    packaging_id = fields.Many2one(
-        string="Package",
-        comodel_name="product.packaging",
-    )
+    packaging_id = fields.Many2one(string="Package", comodel_name="product.packaging",)
     packaging_qty = fields.Integer(string="Package Qty")
 
     @api.onchange("packaging_qty", "packaging_id")
